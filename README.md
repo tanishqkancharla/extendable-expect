@@ -1,30 +1,51 @@
-# npm-ts-boilerplate
-A boilerplate for typescript packages for npm. [Esbuild](https://esbuild.github.io), [Vitest](https://vitest.dev).
+# Extendable expect
 
-```sh
-# Build into dist folder
-npm run build
+An extendable version of the typical `expect` test API, inspired by [Playwright fixtures](https://playwright.dev/docs/test-fixtures).
 
-# Check types
-npm run check
+```ts
+const numberMatchers = {
+  doubledToBe(value: number, expected: number) {
+    expect(value * 2).toEqual(expected)
+  },
+}
 
-npm run test
+const expectNumber = expect.extend(numberMatchers)
 
-# Build and publish to NPM (make sure the version is bumped)
-npm run release
-
-# Print the bundlesize of the minified package and exit
-npm run bundlesize
+// Autocompletes with types
+expectNumber(4 + 1).doubledToBe(10)
 ```
 
-I've been iterating on this for a while. Here are the interesting bits:
+There are a few base matchers that come out of the box, but they're pretty minimal:
 
-* Packages are bundled into `index.cjs` (for CommonJS) and `index.js` (for ESM).
-* Types are all bundled into `index.d.ts`
-* Sourcemaps for bundles point to `src` directory. One could argue the bundles are readable by themselves (since they're not minified), but the source map files are small, and reading in Typescript vs. Javascript can help debug (you know the type of each variable).
-* Only `src` and `dist` folders are published to NPM.
-* Tests are in `*.test.ts` files, run by Vitest
+```ts
+{
+  // Booleans
+  toBeTruthy: () => void;
+  toBeFalsy: () => void;
 
-The reason I don't just use Parcel (my preferred build system) is because of:
-* https://github.com/parcel-bundler/parcel/issues/7951
-* Parcel mangles names, and I didn't know how to turn that off.
+  // Numbers
+  toBeGreaterThan: (expected: number) => void
+  toBeGreaterThanOrEqual: (expected: number) => void
+  toBeLessThan: (expected: number) => void
+  toBeLessThanOrEqual: (expected: number) => void
+
+  // Promises
+  toAwaitToEqual: (expected: unknown) => Promise<void>;
+
+  // Arrays
+  toHaveUniqueValues: () => void;
+  toContain: (valueToTest: unknown) => void;
+  toHaveLength: (expectedLength: number) => void;
+
+  // Other
+  toReferenceEqual: (expected: number) => void
+  toEqual: (expected: number) => void
+  toShallowEqual: (expected: number) => void
+  toBeTruthy: () => void
+  toBeFalsy: () => void
+}
+```
+
+## TODO
+- [ ] Better types for promises and arrays
+- [ ] Plain object matchers
