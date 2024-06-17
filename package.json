@@ -1,7 +1,7 @@
 {
 	"name": "extendable-expect",
 	"type": "module",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Tanishq Kancharla <tanishqkancharla3@gmail.com>",
 	"description": "A boilerplate for typescript npm packages",
 	"keywords": [],
