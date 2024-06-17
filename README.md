@@ -1,6 +1,6 @@
 # Extendable expect
 
-An extendable version of the typical `expect` test API, inspired by [Playwright fixtures](https://playwright.dev/docs/test-fixtures).
+An extendable version of the typical `expect` test API, inspired by [Playwright fixtures](https://playwright.dev/docs/test-fixtures). A significant amount of the code is taken from Vitest for the pretty diff-printing.
 
 ```ts
 const numberMatchers = {

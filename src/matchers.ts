@@ -5,7 +5,7 @@ import type { AnyMatchers, MatcherThisArg } from "./expect"
 import { isShallowEqual } from "./shallowEqual"
 import { stringify } from "./stringify"
 
-chain.filter.attach(function (error, frames) {
+chain.filter?.attach(function (error, frames) {
 	// Filter out traces related to this file
 	const rewrite = frames.filter(function (callSite) {
 		return callSite.getFileName() !== module.filename
