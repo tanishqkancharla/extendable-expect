@@ -23,6 +23,13 @@
 		"release": "npm run build; npm publish",
 		"bundlesize": "esbuild ./dist/index.js --minify --outfile=bundled; rm bundled"
 	},
+	"dependencies": {
+		"@types/diff": "^5.2.1",
+		"@types/lodash-es": "^4.17.12",
+		"diff": "^5.2.0",
+		"lodash-es": "^4.17.21",
+		"stack-chain": "^2.0.0"
+	},
 	"devDependencies": {
 		"@types/node": "^20.14.2",
 		"ansi-colors": "^4.1.3",
@@ -30,12 +37,5 @@
 		"tsx": "^4.15.5",
 		"typescript": "^5.4.5",
 		"vitest": "^1.6.0"
-	},
-	"dependencies": {
-		"@types/diff": "^5.2.1",
-		"@types/lodash-es": "^4.17.12",
-		"diff": "^5.2.0",
-		"lodash-es": "^4.17.21",
-		"stack-chain": "^2.0.0"
 	}
 }
