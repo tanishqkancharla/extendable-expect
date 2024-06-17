@@ -1,8 +1,8 @@
-import test from "vitest"
+import { describe, it } from "vitest"
 import { expect } from "./expect"
 
-test.describe("Expect", () => {
-	test.it("Works with custom matchers", () => {
+describe("Expect", () => {
+	it("Works with custom matchers", () => {
 		const numberMatchers = {
 			doubledToBe(value: number, expected: number) {
 				expect(value * 2).toEqual(expected)

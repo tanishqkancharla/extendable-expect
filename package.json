@@ -1,6 +1,6 @@
 {
-	"name": "@tanishqkancharla/npm-boilerplate",
-	"version": "0.0.1",
+	"name": "extendable-expect",
+	"version": "1.0.0",
 	"author": "Tanishq Kancharla <tanishqkancharla3@gmail.com>",
 	"description": "A boilerplate for typescript npm packages",
 	"keywords": [],
@@ -20,7 +20,7 @@
 		"build": "tsx scripts/build.ts",
 		"check": "tsc --noEmit",
 		"test": "vitest",
-		"release": "npm run build; npm publish",
+		"release": "npm run test; npm run build; npm publish",
 		"bundlesize": "esbuild ./dist/index.js --minify --outfile=bundled; rm bundled"
 	},
 	"devDependencies": {
@@ -32,7 +32,9 @@
 		"vitest": "^1.6.0"
 	},
 	"dependencies": {
+		"@types/diff": "^5.2.1",
 		"@types/lodash-es": "^4.17.12",
+		"diff": "^5.2.0",
 		"lodash-es": "^4.17.21",
 		"stack-chain": "^2.0.0"
 	}
