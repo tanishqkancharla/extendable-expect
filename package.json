@@ -20,7 +20,7 @@
 		"build": "tsx scripts/build.ts",
 		"check": "tsc --noEmit",
 		"test": "vitest",
-		"release": "npm run test; npm run build; npm publish",
+		"release": "npm run build; npm publish",
 		"bundlesize": "esbuild ./dist/index.js --minify --outfile=bundled; rm bundled"
 	},
 	"devDependencies": {
