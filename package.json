@@ -1,13 +1,13 @@
 {
 	"name": "extendable-expect",
 	"type": "module",
+	"main": "./dist/index.js",
 	"version": "1.0.1",
 	"author": "Tanishq Kancharla <tanishqkancharla3@gmail.com>",
 	"description": "A boilerplate for typescript npm packages",
 	"keywords": [],
 	"license": "MIT",
 	"source": "./src/index.ts",
-	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist",
