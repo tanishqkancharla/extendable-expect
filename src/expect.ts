@@ -31,11 +31,11 @@ type FilterMatchersByValueType<T, Matchers extends AnyMatchers> = Extract<
 type MatchersForValue<T, Matchers extends AnyMatchers> = {
 	[Key in FilterMatchersByValueType<T, Matchers>["key"]]: (
 		...args: TupleRest<Parameters<Matchers[Key]>>
-	) => void
+	) => ReturnType<Matchers[Key]>
 } & {
 	[key in keyof FallbackMatchers<T>]: (
 		...args: TupleRest<Parameters<FallbackMatchers<T>[key]>>
-	) => void
+	) => ReturnType<FallbackMatchers<T>[key]>
 }
 
 type X = MatchersForValue<Array<number>, TypedBaseMatchers>
